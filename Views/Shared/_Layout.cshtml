@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - mvc_web_project</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/mvc_web_project.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <header>
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-links">
+                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="#"><i class="fas fa-user"></i> My Account</a>
+                <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">            <div class="logo">
+                <h1>FitSupplement</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Protein</a>
+                    <div class="dropdown-content">
+                        <a href="#">Whey Protein</a>
+                        <a href="#">Plant Protein</a>
+                        <a href="#">Casein</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Vitamins</a>
+                    <div class="dropdown-content">
+                        <a href="#">Multivitamins</a>
+                        <a href="#">Vitamin D</a>
+                        <a href="#">Vitamin C</a>
+                    </div>
+                </li>
+                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Snacks</a></li>                <li><a href="#">Goals</a></li>
+            </ul>
+            <div class="search-bar">
+                <form>
+                    <input type="search" placeholder="Search products...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>  
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Delivery & Returns</h3>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns Policy</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About MyProtein</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
