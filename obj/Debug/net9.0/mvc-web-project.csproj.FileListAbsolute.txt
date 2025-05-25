@@ -149,7 +149,6 @@ D:\mvc-web-project\obj\Debug\net9.0\mvc-web-project.sourcelink.json
 D:\mvc-web-project\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\mvc-web-project\obj\Debug\net9.0\scopedcss\bundle\mvc-web-project.styles.css
 D:\mvc-web-project\obj\Debug\net9.0\scopedcss\projectbundle\mvc-web-project.bundle.scp.css
-D:\mvc-web-project\obj\Debug\net9.0\compressed\wc0jhk3ibx-pitgmchbpc.gz
 D:\mvc-web-project\obj\Debug\net9.0\compressed\zov2nc27mo-61n19gt1b8.gz
 D:\mvc-web-project\obj\Debug\net9.0\compressed\5pu14ies2u-0i5g3vzfv9.gz
 D:\mvc-web-project\obj\Debug\net9.0\compressed\duwmbxag4y-bqjiyaj88i.gz
@@ -223,3 +222,4 @@ D:\mvc-web-project\obj\Debug\net9.0\refint\mvc-web-project.dll
 D:\mvc-web-project\obj\Debug\net9.0\mvc-web-project.pdb
 D:\mvc-web-project\obj\Debug\net9.0\mvc-web-project.genruntimeconfig.cache
 D:\mvc-web-project\obj\Debug\net9.0\ref\mvc-web-project.dll
+d:\mvc-web-project\obj\Debug\net9.0\compressed\wc0jhk3ibx-yvyb950q24.gz

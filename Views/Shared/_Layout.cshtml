@@ -22,12 +22,10 @@
                 <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
             </div>
         </div>
-    </div>
-
-    <!-- Main Navigation -->
+    </div>    <!-- Main Navigation -->
     <nav class="main-nav">
         <div class="container">            <div class="logo">
-                <h1>FitSupplement</h1>
+                <h1><a asp-controller="Home" asp-action="Index">FitSupplement</a></h1>
             </div>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -45,9 +43,10 @@
                         <a href="#">Vitamin D</a>
                         <a href="#">Vitamin C</a>
                     </div>
-                </li>
-                <li><a href="#">Clothing</a></li>
-                <li><a href="#">Snacks</a></li>                <li><a href="#">Goals</a></li>
+                </li><li><a href="#">Clothing</a></li>
+                <li><a href="#">Snacks</a></li>
+                <li><a href="#">Goals</a></li>
+                <li><a asp-controller="User" asp-action="Index">Users</a></li>
             </ul>
             <div class="search-bar">
                 <form>

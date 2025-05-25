@@ -178,8 +178,17 @@ ul {
 
 .logo h1 {
     font-size: 24px;
-    color: #0071b9;
     font-weight: bold;
+}
+
+.logo h1 a {
+    color: #0071b9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo h1 a:hover {
+    color: #4da9ff;
 }
 
 .nav-links {

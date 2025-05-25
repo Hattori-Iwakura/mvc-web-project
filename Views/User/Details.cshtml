@@ -1,0 +1,44 @@
+@model mvc_web_project.Models.User
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>User Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FullName)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.FullName)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Phone)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Phone)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Address)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Address)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Role)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Role)</dd>
+
+        @if (!string.IsNullOrEmpty(Model.ProfilePictureUrl))
+        {
+            <dt class="col-sm-3">Profile Picture</dt>
+            <dd class="col-sm-9">
+                <img src="@Model.ProfilePictureUrl" alt="Profile Picture" class="img-thumbnail" style="max-width: 200px;" />
+            </dd>
+        }
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CreatedAt)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.CreatedAt)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.UpdatedAt)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.UpdatedAt)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.UserID" class="btn btn-warning">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

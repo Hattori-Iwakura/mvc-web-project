@@ -1,5 +1,7 @@
 
 
+namespace mvc_web_project.Models;
+
 public enum UserRole
 {
     User = 0,
