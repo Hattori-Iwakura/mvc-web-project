@@ -1,0 +1,82 @@
+@model mvc_web_project.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Create New Account</h2>
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" required />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" type="email" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control" required />
+                <span id="passwordMatch" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Phone" class="form-label">Phone Number</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Address" class="form-label">Address</label>
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+            <div class="register-link">
+                Already have an account? <a asp-action="Login">Login here</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = this.value;
+            var matchElement = document.getElementById('passwordMatch');
+            
+            if (password !== confirmPassword) {
+                matchElement.textContent = 'Passwords do not match';
+            } else {
+                matchElement.textContent = '';
+            }
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                document.getElementById('passwordMatch').textContent = 'Passwords do not match';
+            }
+        });
+    </script>
+}

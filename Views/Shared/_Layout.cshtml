@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - mvc_web_project</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] - FitSupplement</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/mvc_web_project.styles.css" asp-append-version="true" />
@@ -13,80 +12,105 @@
 </head>
 <body>
     <header>
-    <div class="utility-bar">
-        <div class="container">
-            <div class="utility-links">
-                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
-                <a href="#"><i class="fas fa-user"></i> My Account</a>
-                <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
-                <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+        <div class="utility-bar">
+            <div class="container-fluid">
+                <div class="utility-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                            <span class="me-2"><i class="fas fa-user"></i> @User.Identity.Name</span>
+                            <button type="submit" class="btn btn-link nav-link d-inline p-0">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login"><i class="fas fa-user"></i> Login</a>
+                    }
+                    <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+                    <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+                </div>
             </div>
         </div>
-    </div>    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <div class="container">            <div class="logo">
-                <h1><a asp-controller="Home" asp-action="Index">FitSupplement</a></h1>
-            </div>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a href="#">Protein</a>
-                    <div class="dropdown-content">
-                        <a href="#">Whey Protein</a>
-                        <a href="#">Plant Protein</a>
-                        <a href="#">Casein</a>
+        
+        <nav class="main-nav">
+            <div class="container-fluid">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1><a asp-controller="Home" asp-action="Index">FitSupplement</a></h1>
                     </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Vitamins</a>
-                    <div class="dropdown-content">
-                        <a href="#">Multivitamins</a>
-                        <a href="#">Vitamin D</a>
-                        <a href="#">Vitamin C</a>
+                    <button class="mobile-menu-toggle d-md-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <form action="/search" method="get">
+                            <input type="search" placeholder="Search products..." name="q">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
-                </li><li><a href="#">Clothing</a></li>
-                <li><a href="#">Snacks</a></li>
-                <li><a href="#">Goals</a></li>
-                <li><a asp-controller="User" asp-action="Index">Users</a></li>
-            </ul>
-            <div class="search-bar">
-                <form>
-                    <input type="search" placeholder="Search products...">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                </div>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Protein</a>
+                        <div class="dropdown-content">
+                            <a href="#">Whey Protein</a>
+                            <a href="#">Plant Protein</a>
+                            <a href="#">Casein</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Vitamins</a>
+                        <div class="dropdown-content">
+                            <a href="#">Multivitamins</a>
+                            <a href="#">Vitamin D</a>
+                            <a href="#">Fish Oil</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Pre-Workout</a>
+                        <div class="dropdown-content">
+                            <a href="#">Stimulant</a>
+                            <a href="#">Non-Stimulant</a>
+                            <a href="#">Energy Drinks</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </nav>  
+        </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+
+    <main role="main">
+        @RenderBody()
+    </main>
 
     <footer>
-        <div class="container">
+        <div class="container-fluid">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>Customer Service</h3>
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Protein</a></li>
+                        <li><a href="#">Vitamins</a></li>
+                        <li><a href="#">Pre-Workout</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
                         <li><a href="#">Returns</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Delivery & Returns</h3>
+                    <h3>About</h3>
                     <ul>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns Policy</a></li>
-                        <li><a href="#">International Shipping</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>About MyProtein</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Press</a></li>
                     </ul>
@@ -97,6 +121,7 @@
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
