@@ -3,39 +3,115 @@
 }
 
 <div class="login-container">
-    <div class="login-box">
-        <h2>Login to Your Account</h2>
-        <form asp-controller="Account" asp-action="Login" method="post">
-            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required />
+    <div class="form-container">
+        <div class="form-slider">
+            <!-- Login Form -->
+            <div class="form-side" id="loginForm">
+                <div class="login-box">
+                    <h2>Login to Your Account</h2>
+                    <form asp-controller="Account" asp-action="Login" method="post">
+                        <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required />
+                        </div>
+
+                        <div class="form-group remember-me">
+                            <label>
+                                <input type="checkbox" name="rememberMe" /> Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                        <div class="switch-form">
+                            <p>Don't have an account? <a href="#" onclick="switchForm('register'); return false;">Register</a></p>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required />
+            <!-- Register Form -->
+            <div class="form-side" id="registerForm">
+                <div class="login-box">
+                    <h2>Create Account</h2>
+                    <form asp-controller="Account" asp-action="Register" method="post">
+                        <div class="form-group">
+                            <label for="registerFullName">Full Name</label>
+                            <input type="text" class="form-control" id="registerFullName" name="FullName" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" name="Email" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" name="Password" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required />
+                            <span id="passwordMatch" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+                        <div class="switch-form">
+                            <p>Already have an account? <a href="#" onclick="switchForm('login'); return false;">Login</a></p>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div class="form-group remember-me">
-                <label>
-                    <input type="checkbox" name="rememberMe" /> Remember me
-                </label>
-                <a href="#" class="forgot-password">Forgot Password?</a>
-            </div>
-
-            <div asp-validation-summary="All" class="text-danger"></div>
-
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-
-            <div class="register-link">
-                Don't have an account? <a asp-controller="Account" asp-action="Register">Register here</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function switchForm(type) {
+            const container = document.querySelector('.form-slider');
+            if (type === 'register') {
+                container.style.transform = 'translateX(-50%)';
+            } else {
+                container.style.transform = 'translateX(0)';
+            }
+        }
+
+        // Password match validation
+        document.getElementById('confirmPassword')?.addEventListener('input', function() {
+            var password = document.getElementById('registerPassword').value;
+            var confirmPassword = this.value;
+            var matchElement = document.getElementById('passwordMatch');
+            
+            if (password !== confirmPassword) {
+                matchElement.textContent = 'Passwords do not match';
+            } else {
+                matchElement.textContent = '';
+            }
+        });
+
+        // Prevent form submission if passwords don't match
+        document.querySelector('#registerForm form')?.addEventListener('submit', function(e) {
+            var password = document.getElementById('registerPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                document.getElementById('passwordMatch').textContent = 'Passwords do not match';
+            }
+        });
+    </script>
 }

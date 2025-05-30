@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<mvc_web_project.Models.Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -18,68 +19,43 @@
     <!-- Product Grid -->
     <section class="products">
         <div class="container">
-            <h2 class="section-title">Top Sellers</h2>
+            <h2 class="section-title">Latest Products</h2>
             <div class="product-grid">
-                <!-- Product Card 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300" alt="Product 1">
+                @foreach (var product in Model)
+                {
+                    <div class="product-card">
+                        <div class="product-image">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img src="@product.ImageUrl" alt="@product.Name">
+                            }
+                            else
+                            {
+                                <img src="/img/products/default-product.jpg" alt="@product.Name">
+                            }
+                        </div>
+                        <h3>@product.Name</h3>
+                        <p class="category">@product.Category?.Name</p>
+                        <div class="rating">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                        </div>
+                        <p class="price">$@product.Price.ToString("0.00")</p>
+                        <div class="stock-info">
+                            @if (product.QuantityInStock > 0)
+                            {
+                                <span class="in-stock">In Stock (@product.QuantityInStock)</span>
+                            }
+                            else
+                            {
+                                <span class="out-of-stock">Out of Stock</span>
+                            }
+                        </div>
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId" class="btn btn-primary buy-now">View Details</a>
                     </div>
-                    <h3>Impact Whey Protein</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div><p class="price">$29.99</p>
-                    <button class="buy-now">Buy Now</button>
-                </div>
-                <!-- Product Card 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300" alt="Product 2">
-                    </div>
-                    <h3>BCAA Energy</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>                    <p class="price">$24.99</p>
-                    <button class="buy-now">Buy Now</button>
-                </div>
-                <!-- Product Card 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300" alt="Product 3">
-                    </div>
-                    <h3>Protein Bar</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>                    <p class="price">$19.99</p>
-                    <button class="buy-now">Buy Now</button>
-                </div>
-                <!-- Product Card 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300" alt="Product 4">
-                    </div>
-                    <h3>Pre-Workout</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div><p class="price">$34.99</p>
-                    <button class="buy-now">Buy Now</button>
-                </div>
+                }
             </div>
         </div>
     </section>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\mvc-web-project\\mvc-web-project.csproj": {}
+    "d:\\mvc-web-project\\mvc-web-project.csproj": {}
   },
   "projects": {
-    "D:\\mvc-web-project\\mvc-web-project.csproj": {
+    "d:\\mvc-web-project\\mvc-web-project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mvc-web-project\\mvc-web-project.csproj",
+        "projectUniqueName": "d:\\mvc-web-project\\mvc-web-project.csproj",
         "projectName": "mvc-web-project",
-        "projectPath": "D:\\mvc-web-project\\mvc-web-project.csproj",
+        "projectPath": "d:\\mvc-web-project\\mvc-web-project.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\mvc-web-project\\obj\\",
+        "outputPath": "d:\\mvc-web-project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
