@@ -1,3 +1,5 @@
+using mvc_web_project.Models;
+
 public class Product
 {
     public int ProductId { get; set; }

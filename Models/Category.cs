@@ -1,3 +1,5 @@
+namespace mvc_web_project.Models;
+
 public class Category
 {
     public int CategoryId { get; set; }
