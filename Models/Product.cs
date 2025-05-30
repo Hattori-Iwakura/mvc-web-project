@@ -1,4 +1,4 @@
-using mvc_web_project.Models;
+namespace mvc_web_project.Models;
 
 public class Product
 {
@@ -15,9 +15,22 @@ public class Product
     public string? ImageUrl { get; set; }
 
     public int CategoryId { get; set; }
-    public Category Category { get; set; } = null!;
+    public virtual Category? Category { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    public override string ToString()
+    {
+        return $"ProductId: {ProductId}, " +
+            $"Name: {Name}, " +
+            $"Description: {Description}, " +
+            $"Price: {Price:C}, " +
+            $"QuantityInStock: {QuantityInStock}, " +
+            $"ImageUrl: {ImageUrl}, " +
+            $"CategoryId: {CategoryId}, " +
+            $"Category: {Category?.Name}, " +
+            $"CreatedAt: {CreatedAt:u}, " +
+            $"UpdatedAt: {UpdatedAt:u}";
+    }
 }
