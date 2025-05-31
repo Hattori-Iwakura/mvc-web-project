@@ -16,12 +16,48 @@ namespace mvc_web_project.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        // GET: Hiển thị danh sách sản phẩm
-        public async Task<IActionResult> Index()
+        // GET: Hiển thị danh sách sản phẩm với bộ lọc
+        public async Task<IActionResult> Index(int? categoryId, decimal? minPrice, decimal? maxPrice, bool? inStock)
         {
-            var products = await _context.Products
-                .Include(p => p.Category)
-                .ToListAsync();
+            var query = _context.Products.Include(p => p.Category).AsQueryable();
+
+            // Lọc theo danh mục
+            if (categoryId.HasValue)
+            {
+                query = query.Where(p => p.CategoryId == categoryId);
+            }
+
+            // Lọc theo khoảng giá
+            if (minPrice.HasValue)
+            {
+                query = query.Where(p => p.Price >= minPrice.Value);
+            }
+            if (maxPrice.HasValue)
+            {
+                query = query.Where(p => p.Price <= maxPrice.Value);
+            }
+
+            // Lọc theo tình trạng còn hàng
+            if (inStock.HasValue && inStock.Value)
+            {
+                query = query.Where(p => p.QuantityInStock > 0);
+            }
+
+            // Lấy danh sách categories cho filter
+            ViewBag.Categories = await _context.Categories.ToListAsync();
+            ViewBag.CategoryId = categoryId;
+            ViewBag.MinPrice = minPrice;
+            ViewBag.MaxPrice = maxPrice;
+            ViewBag.InStock = inStock;
+
+            // Lấy tên category nếu đang lọc theo category
+            if (categoryId.HasValue)
+            {
+                var category = await _context.Categories.FindAsync(categoryId);
+                ViewBag.CategoryName = category?.Name;
+            }
+
+            var products = await query.ToListAsync();
             return View(products);
         }
 

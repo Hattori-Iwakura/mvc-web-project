@@ -35,7 +35,7 @@
                             }
                         </div>
                         <h3>@product.Name</h3>
-                        <p class="category">@product.Category?.Name</p>
+                        <p class="category" style="margin-left: 1em;">@product.Category?.Name</p>
                         <div class="rating">
                             @for (int i = 0; i < 5; i++)
                             {
@@ -43,7 +43,7 @@
                             }
                         </div>
                         <p class="price">$@product.Price.ToString("0.00")</p>
-                        <div class="stock-info">
+                        <div class="stock-info" style="margin-left: 1em;">
                             @if (product.QuantityInStock > 0)
                             {
                                 <span class="in-stock">In Stock (@product.QuantityInStock)</span>

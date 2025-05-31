@@ -96,12 +96,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\banner2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\ade82050-9113-4650-94bc-b8f26ac3bbfc_61DVwelMN4L.webp))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\6f6377ea-20ac-43bd-886e-b80e98faab95_61DVwelMN4L.webp))">
       <SourceType>Package</SourceType>
       <SourceId>mvc-web-project</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/mvc-web-project</BasePath>
-      <RelativePath>img/products/ade82050-9113-4650-94bc-b8f26ac3bbfc_61DVwelMN4L.webp</RelativePath>
+      <RelativePath>img/products/6f6377ea-20ac-43bd-886e-b80e98faab95_61DVwelMN4L.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -110,7 +110,23 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\ade82050-9113-4650-94bc-b8f26ac3bbfc_61DVwelMN4L.webp))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\6f6377ea-20ac-43bd-886e-b80e98faab95_61DVwelMN4L.webp))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\a8300040-dd8a-4c55-8fd7-bc13d2122d6f_optimum-nutrition-micronised-creatine-powder-unflavored-40811648057582.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>mvc-web-project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/mvc-web-project</BasePath>
+      <RelativePath>img/products/a8300040-dd8a-4c55-8fd7-bc13d2122d6f_optimum-nutrition-micronised-creatine-powder-unflavored-40811648057582.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\a8300040-dd8a-4c55-8fd7-bc13d2122d6f_optimum-nutrition-micronised-creatine-powder-unflavored-40811648057582.webp))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\dbff5cc4-4a19-484c-9fd4-fe441289eb07_optimum-nutrition-micronised-creatine-powder-unflavored-40811648057582.webp))">
       <SourceType>Package</SourceType>
@@ -127,22 +143,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\dbff5cc4-4a19-484c-9fd4-fe441289eb07_optimum-nutrition-micronised-creatine-powder-unflavored-40811648057582.webp))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\e5d52435-4a5a-43e5-96c8-963f6698cdf2_61DVwelMN4L.webp))">
-      <SourceType>Package</SourceType>
-      <SourceId>mvc-web-project</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/mvc-web-project</BasePath>
-      <RelativePath>img/products/e5d52435-4a5a-43e5-96c8-963f6698cdf2_61DVwelMN4L.webp</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\products\e5d52435-4a5a-43e5-96c8-963f6698cdf2_61DVwelMN4L.webp))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\site.js))">
       <SourceType>Package</SourceType>
